@@ -35,7 +35,6 @@ const Settings = () => {
   ];
   const loadUserDetails = async () => {
     const user = await AsyncStorage.getItem('userDetails');
-    console.log('user', user);
     setUserDetails(user);
   };
   useEffect(() => {
@@ -165,7 +164,6 @@ const Settings = () => {
                 style={{
                   fontSize: SIZES.medium,
                   fontFamily: 'DMBold',
-                  color: COLORS.primary,
                 }}
                 numberOfLines={1}
               >

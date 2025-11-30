@@ -16,10 +16,14 @@ import { MeditationTopDisplay, About, Footer, Tabs } from '../../components';
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 import { COLORS, icons, SIZES } from '../../constants';
 import useFetch from '../../hook/useFetch';
+import { useTheme } from '../../context/ThemeProvider';
 
 const tabs = ['About', 'Instructions'];
 
 const MeditationDetails = () => {
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
+
   const params = useGlobalSearchParams();
   const id = params.id;
   const { data, isLoading, error, refetch } = useFetch('search', {
@@ -55,6 +59,7 @@ const MeditationDetails = () => {
         <About
           title={meditationItem.title}
           info={meditationItem.description ?? 'No data provided'}
+          isDarkMode={isDarkMode}
         />
       );
     } else if (activeTab === 'Instructions') {
@@ -98,6 +103,7 @@ const MeditationDetails = () => {
               meditationTitle={meditationItem.title}
               duration={meditationItem.duration}
               target={meditationItem.target}
+              isDarkMode={isDarkMode}
             />
 
             <Tabs

@@ -1,16 +1,33 @@
-import React from 'react';
 import { View, Text, Image } from 'react-native';
-
 import styles from './MeditationTopDisplay.style';
+import { COLORS } from '../../constants';
+
+const getThemeStyles = (isDark) => ({
+  headText: {
+    color: isDark ? COLORS.darkText : COLORS.lightText,
+  },
+  contextText: {
+    color: isDark ? COLORS.darkText : COLORS.lightText,
+  },
+  container: {
+    backgroundColor: isDark ? COLORS.darkBackground : COLORS.lightWhite,
+  },
+  contentBox: {
+    backgroundColor: isDark ? COLORS.darkBackground : COLORS.lightWhite,
+  },
+});
 
 const MeditationTopDisplay = ({
   meditationImage,
   meditationTitle,
   duration,
   target,
+  isDarkMode,
 }) => {
+  const themeStyles = getThemeStyles(isDarkMode);
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, themeStyles.container]}>
       <View style={styles.logoBox}>
         <Image
           source={{
