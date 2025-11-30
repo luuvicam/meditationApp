@@ -5,6 +5,7 @@ import ScreenHeaderBtn from '../components/ScreenHeaderBtn';
 import Welcome from '../components/Welcome';
 import PopularMeditation from '../components/PopularMeditation';
 import DailyMeditation from '../components/DailyMeditation';
+import DailyQuote from '../components/DailyQuote';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
           testID='screensDisplay'
         >
           <Welcome userDetails={userDetails ? JSON.parse(userDetails) : null} />
+          <DailyQuote />
           <PopularMeditation />
           <DailyMeditation />
         </View>
