@@ -8,8 +8,6 @@ import { TouchableOpacity } from 'react-native';
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 
 const ThemeChange = () => {
-  console.log('hello from themechange');
-
   const { theme, toggleTheme } = useTheme();
   console.log('theme', theme);
 
