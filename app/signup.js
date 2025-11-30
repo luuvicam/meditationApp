@@ -17,10 +17,11 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  
+
   const handleRegister = async () => {
     if (!userName || !email || !password) {
       Alert.alert('Validation Error', 'Please fill in all fields.');
+      alert('Validation Error Please fill in all fields.');
       return;
     }
 
